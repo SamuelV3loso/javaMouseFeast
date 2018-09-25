@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+		<title>Mouse Feast</title>
+	
+		<link rel="icon" href="./img/avatar.png" type="image/x-icon" />
+		
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrapLogin/css/bootstrap.min.css" rel="stylesheet">
+	
+		<!-- Custom styles for this template -->
+		<link href="css/round-about.css" rel="stylesheet">
+	
+		<link rel="stylesheet" type="text/css" href="css/sobre.css">
+		<!--===============================================================================================-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Categoria</th>
+								<th>Nome</th>
+								<th>Valor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p : ${produtoList}">
+							
+								<td th:text="${p.categoria}"></td>
+								<td th:text="${p.nome}"></td>
+								<td th:text="${p.valor}"></td>
+						
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+
+	</body>
+</html>
