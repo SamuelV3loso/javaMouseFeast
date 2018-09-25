@@ -13,42 +13,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.amazon.mousefeast.models.Produto;
-import com.amazon.mousefeast.repository.ProdutoRepository;
+import com.amazon.mousefeast.models.Cliente;
+import com.amazon.mousefeast.repository.ClienteRepository;
 
 @RestController
-@RequestMapping(value="/produto")
-public class ProdutoResources {
-
-	@Autowired
-	ProdutoRepository produtoRepository;
+@RequestMapping("/cliente")
+public class ClienteResources {
 	
+	@Autowired
+	ClienteRepository clienteRepository;
+
 	@GetMapping( "/get" )
-	public List<Produto> listaProdutos(){
-		 return produtoRepository.findAll();
+	public List<Cliente> listaClientes(){
+		 return clienteRepository.findAll();
 	}
 
 	@PostMapping( "/save" )
-	public Produto salvar(@RequestBody Produto produto) {
-		return produtoRepository.save(produto);
+	public Cliente salvar(@RequestBody Cliente cliente) {
+		return clienteRepository.save(cliente);
 	}
 
 	@PutMapping( "/update" )
-	public Produto atualizar(@RequestBody Produto produto) {
-		return produtoRepository.save(produto);
+	public Cliente atualizar(@RequestBody Cliente cliente) {
+		return clienteRepository.save(cliente);
 	}
 
 	@DeleteMapping("{id}")
 	public void deletarPeloId(@PathVariable("id") Integer id) {
-		produtoRepository.deleteById(id);
+		clienteRepository.deleteById(id);
 	}
 	
 	@GetMapping("/search")
-	public List<Produto> pesquisar(@RequestParam("nome") String nome){
+	public List<Cliente> pesquisar(@RequestParam("nome") String nome){
 		
-		List <Produto> produto = produtoRepository.findByNomeContainingIgnoreCase(nome);
-		return produto;  
+		List <Cliente> cliente = clienteRepository.findByNomeContainingIgnoreCase(nome);
+		return cliente;  
 			
 	}
+	
 	
 }

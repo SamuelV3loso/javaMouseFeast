@@ -1,18 +1,112 @@
 package com.amazon.mousefeast.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-public class Cliente extends Pessoa{
+public class Cliente implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column( nullable = false )
 	private String email;
 	@Column( nullable = false )
 	private String senha;
+	@Column( nullable = false )
+	private String nome;
+	@Column( nullable = false )
+	private String cpf;
+	
+	@Column
+	private String dataNasc;
+	@Column
+	private String rua;
+	@Column
+	private String bairro;
+	@Column
+	private String numero;
+	@Column
+	private String complemento;
+	@Column
+	private String cep;
+	@Column
+	private String estado;
+	@Column
+	private String cidade;
+	
+	public Cliente() {
+		super();
+	}
+	
+	public String getRua() {
+		return rua;
+	}
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	public String getComplemento() {
+		return complemento;
+	}
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getDataNasc() {
+		return dataNasc;
+	}
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
+	}
 	
 	public String getEmail() {
 		return email;

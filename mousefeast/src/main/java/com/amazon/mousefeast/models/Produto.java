@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class Produto implements Serializable{
@@ -18,7 +17,7 @@ public class Produto implements Serializable{
 	private Integer id;
 	
 	@Column( nullable = false )
-	private String departamento;
+	private String categoria;
 	
 	@Column( nullable = false )
 	private String nome;
@@ -27,23 +26,15 @@ public class Produto implements Serializable{
 	private double valor;
 	
 	@Column
-	private String especificacoes;
-	@Column
 	private String detalhes;
 	@Column
-	private double desconto;
-	@Column
 	private String fabricante;
-	@Column
-	private String ASIN;
-	@Column
-	private String categoria;
-	public String getDepartamento() {
-		return departamento;
+	
+	
+	public Produto() {
+		super();
 	}
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -56,24 +47,13 @@ public class Produto implements Serializable{
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	public String getEspecificacoes() {
-		return especificacoes;
-	}
-	public void setEspecificacoes(String especificacoes) {
-		this.especificacoes = especificacoes;
-	}
 	public String getDetalhes() {
 		return detalhes;
 	}
 	public void setDetalhes(String detalhes) {
 		this.detalhes = detalhes;
 	}
-	public double getDesconto() {
-		return desconto;
-	}
-	public void setDesconto(double desconto) {
-		this.desconto = desconto;
-	}
+
 	public String getCategoria() {
 		return categoria;
 	}
@@ -86,10 +66,7 @@ public class Produto implements Serializable{
 	public String getFabricante() {
 		return fabricante;
 	}
-	public String getASIN() {
-		return ASIN;
-	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
