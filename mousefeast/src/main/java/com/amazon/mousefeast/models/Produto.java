@@ -31,8 +31,11 @@ public class Produto implements Serializable{
 	private String fabricante;
 	
 	
-	public Produto() {
+	public Produto(String categoria, String nome, double valor) {
 		super();
+		this.categoria = categoria;
+		this.nome = nome;
+		this.valor = valor;
 	}
 
 	public String getNome() {
