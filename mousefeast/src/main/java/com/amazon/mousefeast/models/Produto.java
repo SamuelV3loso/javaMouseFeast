@@ -37,6 +37,10 @@ public class Produto implements Serializable{
 		this.nome = nome;
 		this.valor = valor;
 	}
+	
+	public Produto() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getNome() {
 		return nome;
@@ -68,6 +72,10 @@ public class Produto implements Serializable{
 	}
 	public String getFabricante() {
 		return fabricante;
+	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
 	}
 
 	@Override

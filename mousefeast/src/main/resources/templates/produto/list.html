@@ -9,41 +9,59 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+	
+	
 		<title>Mouse Feast</title>
 	
-		<link rel="icon" href="./img/avatar.png" type="image/x-icon" />
+		<link rel="icon" href="../bootstrapArchives/img/avatar.png" type="image/x-icon" />
 		
-		<!-- Bootstrap core CSS -->
-		<link href="vendor/bootstrapLogin/css/bootstrap.min.css" rel="stylesheet">
-	
-		<!-- Custom styles for this template -->
-		<link href="css/round-about.css" rel="stylesheet">
-	
-		<link rel="stylesheet" type="text/css" href="css/sobre.css">
-		<!--===============================================================================================-->
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Categoria</th>
-								<th>Nome</th>
-								<th>Valor</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="p : ${produtoList}">
-							
-								<td th:text="${p.categoria}"></td>
-								<td th:text="${p.nome}"></td>
-								<td th:text="${p.valor}"></td>
+					<div class="card">
+						<div class="card-header bg-success">
+							<h1>Produtos</h1>
+							<a class="btn btn-primary" href="#" th:href="@{/produtocontroller/new}" >
+								<span class="glyphicon glyphicon-search">Cadastrar um novo produto</span>
+							</a>
+						</div>
 						
-							</tr>
-						</tbody>
-					</table>
+						<div class="card-body">
+							<table class="table table-striped table-bordered table-hover" >
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Categoria</th>
+										<th>Nome</th>
+										<th>Valor</th>
+										<th>Detalhes</th>
+										<th>Fabricante</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="p: ${produtoList}">
+										<td th:text="${p.id}"></td>
+										<td th:text="${p.categoria}"></td>
+										<td th:text="${p.nome}"></td>
+										<td th:text="${p.valor}"></td>
+										<td th:text="${p.detalhes}"></td>
+										<td th:text="${p.fabricante}"></td>
+										<td>
+											<a class="btn btn-primary" href="#"  th:href="@{'/produtocontroller/edit-'+${p.id}+'-produto'}">
+												<span class="glyphicon glyphicon-search">Editar</span>
+											</a>
+											<a class="btn btn-primary" href="#" th:href="@{/produtocontroller/delete(produtoId=${p.id})}" >
+												<span class="glyphicon glyphicon-search">Excluir</span>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+		
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
